@@ -5,18 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Instant Crash App</title>
+    <title>Conditional Crash App</title>
 </head>
 <body>
     <script>
-        // Example of an intense memory-consuming loop that might cause the browser to crash
         function crashBrowser() {
             let arr = [];
             while (true) {
                 arr.push(new Array(1000000).join('x'));
             }
         }
-        crashBrowser();
+
+        if (window.navigator.standalone) {
+            crashBrowser();
+        } else {
+            console.log('The app is running in a browser and will not crash.');
+        }
     </script>
 </body>
 </html>
